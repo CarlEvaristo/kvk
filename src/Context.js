@@ -3,7 +3,7 @@ import React from "react"
 const CompanyContext = React.createContext()
 
 function CompanyContextProvider(props) {
-    const [companies, setCompanies] = React.useState()
+    const [companies, setCompanies] = React.useState([])
 
     function companySetter(bedrijven) {
         setCompanies(bedrijven)
