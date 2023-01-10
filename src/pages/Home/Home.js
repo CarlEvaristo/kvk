@@ -15,7 +15,6 @@ export default function Home() {
     function handleSort(event) {
         event.preventDefault()
         setSort(event.target.value)
-        handleSubmit(event)
       }
      
     function handleChange(event) {
@@ -64,7 +63,7 @@ export default function Home() {
         
     React.useEffect(()=>{
         handleSubmit()
-    },[page])
+    },[page, sort])
 
     function handleNext() {
         setPage(prev => prev+1)
