@@ -69,7 +69,7 @@ export default function Home() {
 
     return (
         <div className='container'>
-            <h2 className="">Bedrijven</h2>
+            <h2>Bedrijven</h2>
             <form>
                 <input type="text" placeholder="Zoek Bedrijven" name="searchInput" onChange={handleChange} onKeyDown={handleKeyDown} />  
                 <span className='buttons'>

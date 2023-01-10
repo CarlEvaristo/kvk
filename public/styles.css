@@ -34,21 +34,13 @@ main {
     align-items: center;
   }
 .container {
-    width: 600px;
+    width: 60vw;
     min-height: 90vh;
     padding-top: 80px;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-}
-.detail {
-    width: 600px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
 }
 form {
     display: flex;
@@ -137,9 +129,6 @@ button:hover {
     padding:2em;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.detailList{
-    padding-left:0;
-}
 .listItem {
     list-style: none;
     padding: 0.5em;
@@ -150,20 +139,39 @@ button:hover {
     background-color: rgb(237, 237, 237);
     cursor: pointer;
 }
-.DetailItem {
+
+.detail {
+    padding: 3rem 6rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.detailList{
+    padding-left:0;
+}
+.detailItem {
     list-style: none;
     margin-bottom:1px;
     font-size: 1.6rem;
+}
+.detailHeader {
+    font-size: 2rem;
+    border-bottom: 1px #000 solid;
 }
 .pagination{
     display: flex;
 }
 @media (max-width:600px) {
+    main {
+        width: 90vw;
+    }
     .navbar {
         padding: 0 20px;
     }
     .container {
-        width: 100vw;
+        width: 90vw;
         padding: 80px 1em 0;
     }
     form{
@@ -174,5 +182,12 @@ button:hover {
     }
     button, select{
         margin-top: 0.5em;
+    }
+    .detail {
+        padding: 3rem;
+    }
+    .detailHeader {
+        font-size: 1.6rem;
+        border-bottom: 1px #000 solid;
     }
 }
