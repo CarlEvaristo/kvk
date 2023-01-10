@@ -64,7 +64,7 @@ select {
     padding: .8em 0.5em;
 }
 input {
-    width: 80%;
+    width:80%;
     margin-right: 0.5em;
 }
 button{
@@ -74,6 +74,9 @@ button{
 button:hover {
     background-color: rgb(161, 161, 161);
     cursor: pointer;
+}
+.buttons {
+    display: flex;
 }
 .companyDetailItem{
     display: flex;
@@ -163,7 +166,13 @@ button:hover {
         width: 100vw;
         padding: 80px 1em 0;
     }
+    form{
+        flex-direction: column;
+    }
     input {
-        flex-basis: 100%; display: flex;
+        width: 100%;
+    }
+    button, select{
+        margin-top: 0.5em;
     }
 }

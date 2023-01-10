@@ -22,10 +22,10 @@ export default function Home() {
     }
 
     function handleKeyDown(event) {
-        event.key === 'Enter' && handleSubmit(event)
+        event.key === 'Enter' && handleClick(event)
     }
 
-    function handleSubmit(){
+    function handleClick(){
         let query 
         switch(sort) {
             case "idDescending":
@@ -56,7 +56,7 @@ export default function Home() {
     
         
     React.useEffect(()=>{
-        handleSubmit()
+        handleClick()
     },[page, sort])
 
     function handleNext() {
@@ -70,10 +70,12 @@ export default function Home() {
     return (
         <div className='container'>
             <h2 className="">Bedrijven</h2>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input type="text" placeholder="Zoek Bedrijven" name="searchInput" onChange={handleChange} onKeyDown={handleKeyDown} />  
-                <Filter sort={sort} handleSort={handleSort} className="filter"/>
-                <button>Zoeken</button>	
+                <span className='buttons'>
+                    <Filter sort={sort} handleSort={handleSort} className="filter"/>
+                    <button onClick={handleClick}>Zoeken</button>	
+                </span>
             </form>
             <CompanyList companies={context.companies}/>
             <div className='pagination'>

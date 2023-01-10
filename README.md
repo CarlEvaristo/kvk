@@ -20,10 +20,10 @@ Hieronder een omschrijving van de opdracht:
 ## Opdracht
 
 - Maak een pagina layout volgens de aangeleverde wireframe.
-- Voorzie de markup van styling. Gebruik de expertise en creativiteit van de sollicitant.
-- Gebruik de API om een overzicht van bedrijven te tonen in het resultatenoverzicht.
-- Schrijf een script om de data van de API op te halen en weer te geven.
-- De API is beschikbaar op de volgende base URL: https://617c09aad842cf001711c200.mockapi.io/v1
+- Voorzie de markup van styling.
+- Gebruik de API om een overzicht van bedrijven te tonen in een overzicht.
+- Request data van de API en geeft deze weer.
+- De API base URL: https://617c09aad842cf001711c200.mockapi.io/v1
 
 ## Wireframe
 
