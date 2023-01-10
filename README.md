@@ -1,4 +1,4 @@
-# Readme
+# Readme KvK casus
 
 Dit is de sollicitatie opdracht voor de Kvk. De opdracht is om een interactieve overzichtspagina in React te bouwen.
 Hieronder een omschrijving van de opdracht:
