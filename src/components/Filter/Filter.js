@@ -8,10 +8,8 @@ export default function Filter({sort, handleSort}) {
                 value={sort}		         
                 onChange={handleSort}
                 name="sort"> 
-            <option value="dateAscending">Date Ascending</option>  
-            <option value="dateDescending">Date Descending</option>              
-            <option value="zipAscending">Zip Ascending</option>           
-            <option value="zipDescending">Zip Descending</option>      
+            <option value="idAscending">ID Ascending</option>              
+            <option value="idDescending">ID Descending</option>  
         </select>
     </>
   )

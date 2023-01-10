@@ -8,7 +8,7 @@ import Filter from '../../components/Filter/Filter'
 export default function Home() {
     const context = React.useContext(CompanyContext)
     const [searchQuery, setSearchQuery] = React.useState("")
-    const [sort, setSort] = React.useState("dateDescending")
+    const [sort, setSort] = React.useState("idAscending")
     const [totalPages, setTotalPages] = React.useState()
     const [page, setPage] = React.useState(1)
 
@@ -26,23 +26,17 @@ export default function Home() {
     }
 
     function handleSubmit(){
-
         let query 
         switch(sort) {
-            case "dateAscending":
-              query = "&sortBy=createdAt&order=asc"
+            case "idDescending":
+              query = "&sortBy=id&order=desc"
               break;
-            case "dateDescending":
-              query = "&sortBy=createdAt&order=desc"
-              break;
-            case "zipAscending":
-              query = "&sortBy=zipCode&order=asc"
-              break;
-            case "zipDescending":
-              query = "&sortBy=zipCode&order=asc"
+            default:
+              query = "&sortBy=id&order=asc"
               break;
           }
 
+        context.companySetter()
         Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}${query}&page=${page}&limit=10`)
         .then(response => {
             setTotalPages(response.data.total)
