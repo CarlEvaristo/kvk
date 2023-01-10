@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    margin:0;
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    margin:0.5em 0;
+}
+a {
+    text-decoration: none;
+}
+.app{
+    margin:0;
+    min-height: 100vh;
+    background-color: #f0f2f55e;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .container {
+    width: 600px;
+    min-height: 90vh;
+    padding-top: 80px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+form {
+    display: flex;
+    width:100%;
+}
+input, button {
+    padding: .8em 2em;
+    border:none;
+    font-size: 1.6rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+input {
+    width: 80%;
+    margin-right: 0.5em;
+}
+button{
+    background-color: rgb(193, 193, 193);
+    margin-left: 0.5em;
+}
+button:hover {
+    background-color: rgb(161, 161, 161);
+    cursor: pointer;
+}
+.companyDetailItem{
+    display: flex;
+    align-items: center;
+}
+.companyLogo {
+    width: 50px;
+    height:50px;
+    margin-right:1.5em;
+}
+.loader {
+    width:50px;
+    height:50px;
+    margin: 3em 0;
+}
+.navbar {
+    position:fixed;
+    width: 100vw;
+    height: 80px;
+    z-index: 1000;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0 50px;
+}
+.links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.link {
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+    padding:0.3em 1em;
+    margin: 0.5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 1em;
+}
+.link.active {
+    color:rgba(151, 151, 151, 0.497);
+    outline:solid white 3px;
+    border-radius: 3px;
+    cursor:default;
+    margin-top: 0.7em;
+}
+.logo {
+    width:100px;
+}
+.companylist {
+    background-color: #fff;
+    width:100%;
+    padding:2em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+.listItem {
+    list-style: none;
+    padding: 0.5em;
+    margin-bottom:1px;
+    font-size: 1.6rem;
+}
+.listItem:hover {
+    background-color: rgb(237, 237, 237);
+    cursor: pointer;
+}
+@media (max-width:600px) {
+    .navbar {
+        padding: 0 20px;
+    }
+    .container {
+        width: 100vw;
+        padding: 80px 1em 0;
+    }
+}
