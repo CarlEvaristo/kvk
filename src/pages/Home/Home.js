@@ -72,7 +72,7 @@ export default function Home() {
             <h2 className="">Bedrijven</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Zoek Bedrijven" name="searchInput" onChange={handleChange} onKeyDown={handleKeyDown} />  
-                <Filter sort={sort} handleSort={handleSort}/>
+                <Filter sort={sort} handleSort={handleSort} className="filter"/>
                 <button>Zoeken</button>	
             </form>
             <CompanyList companies={context.companies}/>

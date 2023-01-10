@@ -31,7 +31,4 @@ Een afbeelding van de wireframe is beschikbaar.
 
 ## Gebruik van create-react-app
 
-- Maak een nieuwe React-applicatie aan met behulp van create-react-app in een folder naar wens:
-- Voor gebruik van TypeScript: npx create-react-app kvk-assignment --template typescript
-- Voor gebruik van JavaScript: npx create-react-app kvk-assignment
-- Navigeer naar het recent aangemaakte project en open App.(t|j)sx om te beginnen met de opdracht.
+- Maak een nieuwe React-applicatie aan met behulp van create-react-app
