@@ -20,10 +20,7 @@ export default function Detail() {
 
     // React.useEffect(()=>{
     //     Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies/${company.id}/details`)
-    //         .then(res => {
-    //             console.log(res.data.data)
-    //             setDetails(res.data.data[0])
-    //         })
+    //         .then(res => setDetails(res))
     //         .catch(err => console.log(err))
     // },[])
 
@@ -40,12 +37,10 @@ export default function Detail() {
                     <li className='DetailItem'><h4>{`Postcode:  ${company.zipCode}`}</h4></li>
                     <li className='DetailItem'><h4>{`Entry Datum:  ${alleenDatum}`}</h4></li>
     
-                    {/* <li className='DetailItem'><h4>{`catchPhrase:  ${details.catchPhrase}`}</h4></li> */}
-
                 </ul> 
             }
             </div>
-            <Link to="/" className="link"><i class="fa-solid fa-arrow-turn-down-left"></i> Ga Terug</Link>
+            <Link to="/" className="link"><i class="fa-solid fa-rotate-left"></i> Ga Terug</Link>
         </main>
     )
 }
