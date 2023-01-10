@@ -15,14 +15,14 @@ Hieronder een omschrijving van de opdracht:
 
 - De sollicitant dient een link naar de online repository te delen, bijvoorbeeld op GitHub.
 - Zorg ervoor dat de originele broncode inzichtelijk is (non-minified, non-transpiled).
-- Heeft de sollicitant vragen over de opdracht of loopt hij/zij tegen problemen aan, neem dan contact op met de contactpersoon van Kompany.
+- Heeft de sollicitant vragen over de opdracht of loopt hij/zij tegen problemen aan, neem dan contact op met de contactpersoon.
 
 ## Opdracht
 
 - Maak een pagina layout volgens de aangeleverde wireframe.
 - Voorzie de markup van styling. Gebruik de expertise en creativiteit van de sollicitant.
 - Gebruik de API om een overzicht van bedrijven te tonen in het resultatenoverzicht.
-- Schrijf een script om de data van de API op te halen en te weergeven in de tabel.
+- Schrijf een script om de data van de API op te halen en weer te geven.
 - De API is beschikbaar op de volgende base URL: https://617c09aad842cf001711c200.mockapi.io/v1
 
 ## Wireframe
