@@ -9,6 +9,8 @@ export default function Home() {
     const context = React.useContext(CompanyContext)
     const [searchQuery, setSearchQuery] = React.useState("")
     const [sort, setSort] = React.useState("dateDescending")
+    const [totalPages, setTotalPages] = React.useState()
+    const [page, setPage] = React.useState(1)
 
     function handleSort(event) {
         event.preventDefault()
@@ -24,8 +26,7 @@ export default function Home() {
         event.key === 'Enter' && handleSubmit(event)
     }
 
-    function handleSubmit(event){
-        event.preventDefault()
+    function handleSubmit(){
 
         let query 
         switch(sort) {
@@ -43,18 +44,35 @@ export default function Home() {
               break;
           }
 
-        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}${query}`)
+        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}${query}&page=${page}&limit=10`)
         .then(response => {
+            setTotalPages(response.data.total)
             context.companySetter(response.data.data)
         })
         .catch(err => console.log(err))
     }
 
     React.useEffect(()=> {
-        Axios.get("https://617c09aad842cf001711c200.mockapi.io/v1/companies")
-            .then(res => context.companySetter(res.data.data))
+        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?page=${page}&limit=10`)
+            .then(res => {
+                setTotalPages(res.data.total)
+                context.companySetter(res.data.data)
+            })
             .catch(err => console.log(err))
       },[])
+    
+        
+    React.useEffect(()=>{
+        handleSubmit()
+    },[page])
+
+    function handleNext() {
+        setPage(prev => prev+1)
+    }
+    
+    function handlePrev() {
+        setPage(prev => prev-1)
+    }
 
     return (
         <div className='container'>
@@ -65,6 +83,10 @@ export default function Home() {
                 <button>Zoeken</button>	
             </form>
             <CompanyList companies={context.companies}/>
+            <div className='pagination'>
+                {page > 1 && <button onClick={handlePrev}>Vorige</button>}
+                {page < totalPages && <button onClick={handleNext}>Volgende</button>}
+            </div>
         </div>
     )
 }

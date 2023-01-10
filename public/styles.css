@@ -152,6 +152,9 @@ button:hover {
     margin-bottom:1px;
     font-size: 1.6rem;
 }
+.pagination{
+    display: flex;
+}
 @media (max-width:600px) {
     .navbar {
         padding: 0 20px;

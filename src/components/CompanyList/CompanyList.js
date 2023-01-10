@@ -13,7 +13,7 @@ export default function CompanyList({companies}) {
                         </Link>
                         ))}
                 </ul> :
-                <h3>Helaas geen bedrijven voor deze zoekopdracht gevonden.</h3>
+                <img src="./images/loading-gif.gif" />
         }
 
     </>
