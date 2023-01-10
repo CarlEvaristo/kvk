@@ -5,22 +5,21 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export default function Detail() {
-    const currItem = useParams().id
+    const id = useParams().id
     const context = React.useContext(CompanyContext)
-    const [details, setDetails] = React.useState()
+    // const [details, setDetails] = React.useState()
 
-    let company = context.companies.filter(company => company.id === currItem)[0]
+    let company = context.companies.filter(company => company.id === id)[0]
     let dateString = company.createdAt
     let date = new Date(dateString);
     let alleenDatum = date.toISOString().split('T')[0];
-
 
     // Hieronder de code voor het laden van de extra informatie voor de detail pagina.
     // Ik heb dit  niet live gezet, omdat de api niet meer kon bereiken, "offline for maintenance".
 
     // React.useEffect(()=>{
-    //     Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies/${company.id}/details`)
-    //         .then(res => setDetails(res))
+    //     Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies/${id}/details`)
+    //         .then(resp => console.log(resp.data))
     //         .catch(err => console.log(err))
     // },[])
 
@@ -41,7 +40,7 @@ export default function Detail() {
                 </ul> 
             }
             </div>
-            <Link to="/" className="link"><i class="fa-solid fa-rotate-left"></i> Ga Terug</Link>
+            <Link to="/" className="link"><i className="fa-solid fa-rotate-left"></i> Ga Terug</Link>
         </main>
     )
 }

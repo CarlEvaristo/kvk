@@ -10,7 +10,7 @@ export default function CompanyList({companies}) {
                 <ul className='companylist'>
                     {companies.map(company => (
                         <Link to={`/companies/${company.id}`} key={company.id}>
-                            <li className="listItem" >{company.name}</li>
+                            <li className="listItem">{company.id} - {company.name}</li>
                         </Link>
                         ))}
                 </ul> :

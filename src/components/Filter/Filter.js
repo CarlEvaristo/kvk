@@ -8,8 +8,8 @@ export default function Filter({sort, handleSort}) {
                 value={sort}		         
                 onChange={handleSort}
                 name="sort"> 
-            <option value="idAscending">ID Ascending</option>              
-            <option value="idDescending">ID Descending</option>  
+            <option value="nameAscending">Name Ascending</option>              
+            <option value="nameDescending">Name Descending</option>  
         </select>
     </>
   )

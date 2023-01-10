@@ -8,38 +8,41 @@ import Filter from '../../components/Filter/Filter'
 export default function Home() {
     const context = React.useContext(CompanyContext)
     const [searchQuery, setSearchQuery] = React.useState("")
-    const [sort, setSort] = React.useState("idAscending")
-    const [totalPages, setTotalPages] = React.useState()
+    const [sort, setSort] = React.useState("nameAscending")
+    const [totalCompanies, setTotalCompanies] = React.useState()
     const [page, setPage] = React.useState(1)
-
+    
     function handleSort(event) {
-        event.preventDefault()
         setSort(event.target.value)
-      }
+
+        let query 
+        switch(event.target.value) {
+            case "nameDescending":
+              query = "&sortBy=name&order=desc"
+              break;
+            default:
+              query = "&sortBy=name&order=asc"
+              break;
+        }
+
+        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}${query}&page=${page}&limit=10`)
+            .then(response => {
+                setTotalCompanies(response.data.total)
+                context.companySetter(response.data.data)
+            })
+            .catch(err => console.log(err))
+
+    }
      
     function handleChange(event) {
         setSearchQuery(event.target.value)
     }
 
-    function handleKeyDown(event) {
-        event.key === 'Enter' && handleClick(event)
-    }
-
-    function handleClick(){
-        let query 
-        switch(sort) {
-            case "idDescending":
-              query = "&sortBy=id&order=desc"
-              break;
-            default:
-              query = "&sortBy=id&order=asc"
-              break;
-          }
-
-        context.companySetter()
-        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}${query}&page=${page}&limit=10`)
+    function handleSearch(e){
+        e.preventDefault()
+        Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=${searchQuery}&page=${page}&limit=10`)
         .then(response => {
-            setTotalPages(response.data.total)
+            setTotalCompanies(response.data.total)
             context.companySetter(response.data.data)
         })
         .catch(err => console.log(err))
@@ -48,16 +51,13 @@ export default function Home() {
     React.useEffect(()=> {
         Axios.get(`https://617c09aad842cf001711c200.mockapi.io/v1/companies?page=${page}&limit=10`)
             .then(res => {
-                setTotalPages(res.data.total)
+                setTotalCompanies(res.data.total)
                 context.companySetter(res.data.data)
             })
             .catch(err => console.log(err))
-      },[])
+      },[page])
     
         
-    React.useEffect(()=>{
-        handleClick()
-    },[page, sort])
 
     function handleNext() {
         setPage(prev => prev+1)
@@ -71,16 +71,16 @@ export default function Home() {
         <div className='container'>
             <h2>Bedrijven</h2>
             <form>
-                <input type="text" placeholder="Zoek Bedrijven" name="searchInput" onChange={handleChange} onKeyDown={handleKeyDown} />  
+                <input type="text" placeholder="Zoek Bedrijven" name="searchInput" onChange={handleChange} />  
                 <span className='buttons'>
                     <Filter sort={sort} handleSort={handleSort} className="filter"/>
-                    <button onClick={handleClick}>Zoeken</button>	
+                    <button onClick={handleSearch}>Zoeken</button>	
                 </span>
             </form>
             <CompanyList companies={context.companies}/>
             <div className='pagination'>
                 {page > 1 && <button onClick={handlePrev}>Vorige</button>}
-                {page < totalPages && <button onClick={handleNext}>Volgende</button>}
+                {page < (totalCompanies/10) && <button onClick={handleNext}>Volgende</button>}
             </div>
         </div>
     )
