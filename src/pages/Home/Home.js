@@ -11,7 +11,7 @@ export default function Home() {
     const [sort, setSort] = React.useState("nameAscending")
     const [totalCompanies, setTotalCompanies] = React.useState()
     const [page, setPage] = React.useState(1)
-    
+
     function handleSort(event) {
         setSort(event.target.value)
 
@@ -31,7 +31,6 @@ export default function Home() {
                 context.companySetter(response.data.data)
             })
             .catch(err => console.log(err))
-
     }
      
     function handleChange(event) {
@@ -55,10 +54,9 @@ export default function Home() {
                 context.companySetter(res.data.data)
             })
             .catch(err => console.log(err))
-      },[page])
+    },[page])
     
         
-
     function handleNext() {
         setPage(prev => prev+1)
     }
